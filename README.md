@@ -18,8 +18,26 @@ Before 6/24:
 6/27/23
 1. created links and routes on the navbar 
 2. added some background css and looked at navigation options/landing page options
+3. pushed project onto git
+4. changed font + added the input form for add piece
 
+6/28/23
+1. FINALLY set up database for postgresql 
+2. created tables on postgresql....with relationsl kryd
+3. 
+
+6/29/23
+1. Set up the post request (not working yet - still getting error)
 Need to: 
+
+//connect front end to the backend on 8080 somehow...
+
+0. When user inputs data into the form, insert it into the database
 1. Style the dropbown buttons for lesson or practice 
 2. Design each page
 3. set up database again on new project
+4. style submit button; maybe add an image
+5. add calendar option
+
+
+

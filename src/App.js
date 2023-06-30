@@ -4,7 +4,10 @@ import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import Home from './Home';
 import FinishedPieces from './FinishedPieces';
 import WorksInProgress from './WorksInProgress';
-import AddPiece from './AddPiece'
+import AddPiece from './AddPiece';
+import NotFound from './NotFound'
+//important controller from musicController
+// import musicController from './musicController';
 import Navbar from './Navbar'
 
 const App = () => {

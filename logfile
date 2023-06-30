@@ -1,0 +1,106 @@
+2023-06-28 21:06:19.768 EDT [17003] LOG:  starting PostgreSQL 14.8 (Homebrew) on aarch64-apple-darwin21.6.0, compiled by Apple clang version 14.0.0 (clang-1400.0.29.202), 64-bit
+2023-06-28 21:06:19.769 EDT [17003] LOG:  listening on IPv6 address "::1", port 5432
+2023-06-28 21:06:19.769 EDT [17003] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-06-28 21:06:19.769 EDT [17003] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2023-06-28 21:06:19.773 EDT [17004] LOG:  database system was shut down at 2023-06-28 21:04:02 EDT
+2023-06-28 21:06:19.776 EDT [17003] LOG:  database system is ready to accept connections
+2023-06-28 21:06:28.770 EDT [17027] FATAL:  database "daviskim" does not exist
+2023-06-28 21:16:23.967 EDT [17332] FATAL:  database "soloproject" does not exist
+2023-06-28 22:27:03.798 EDT [19046] FATAL:  role "my_user" does not exist
+2023-06-28 22:32:47.396 EDT [19281] FATAL:  database "daviskim" does not exist
+2023-06-28 22:40:18.758 EDT [19535] ERROR:  syntax error at or near "[" at character 14
+2023-06-28 22:40:18.758 EDT [19535] STATEMENT:  CREATE TABLE [IFNOTEXISTS] pieces (
+		piece_id SERIAL PRIMARY KEY NOT NULL, 
+		piece_name varchar NOT NULL, 
+		composer varchar NOT NULL, 
+		starting_date text NOT NULL,
+		additional_thoughts text NOT NULL
+	);
+2023-06-28 22:40:49.886 EDT [19535] ERROR:  syntax error at or near "[" at character 14
+2023-06-28 22:40:49.886 EDT [19535] STATEMENT:  CREATE TABLE [ IFNOTEXISTS ] pieces (
+		piece_id SERIAL PRIMARY KEY NOT NULL, 
+		piece_name varchar NOT NULL, 
+		composer varchar NOT NULL, 
+		starting_date text NOT NULL,
+		additional_thoughts text NOT NULL
+	);
+2023-06-28 22:47:17.522 EDT [19535] ERROR:  column "piece_id" referenced in foreign key constraint does not exist
+2023-06-28 22:47:17.522 EDT [19535] STATEMENT:  CREATE TABLE feedback (
+		feedback_id SERIAL PRIMARY KEY NOT NULL, 
+		lesson_or_practice varchar, 
+		feedback text NOT NULL,
+		date text NOT NULL, 
+		CONSTRAINT fk_piece
+			FOREIGN KEY (piece_id)
+				REFERENCES pieces(piece_id)
+	);
+2023-06-28 22:48:58.902 EDT [19535] ERROR:  column "piece_id" referenced in foreign key constraint does not exist
+2023-06-28 22:48:58.902 EDT [19535] STATEMENT:  CREATE TABLE feedback (
+		feedback_id SERIAL PRIMARY KEY NOT NULL, 
+		lesson_or_practice varchar, 
+		feedback text NOT NULL,
+		date text NOT NULL, 
+		CONSTRAINT fk_piece
+			FOREIGN KEY (piece_id)
+				REFERENCES public.pieces(piece_id)
+	);
+2023-06-28 22:54:03.262 EDT [19923] ERROR:  relation "feedback" already exists
+2023-06-28 22:54:03.262 EDT [19923] STATEMENT:  CREATE TABLE feedback (
+		feedback_id SERIAL PRIMARY KEY NOT NULL, 
+		lesson_or_practice varchar, 
+		feedback text NOT NULL,
+		date text NOT NULL, 
+		piece_id int references pieces(piece_id)
+	);
+2023-06-28 23:05:22.802 EDT [20271] ERROR:  syntax error at or near "DROP" at character 22
+2023-06-28 23:05:22.802 EDT [20271] STATEMENT:  DROP TABLE feedback 
+	DROP TABLE feedback 
+	DROP TABLE feedback CASCADE
+	ALTER TABLE feedback ADD COLUMN piece_id INT;
+2023-06-28 23:06:05.018 EDT [20271] ERROR:  syntax error at or near "REFERENCE" at character 49
+2023-06-28 23:06:05.018 EDT [20271] STATEMENT:  ALTER TABLE feedback ADD FOREIGN KEY (piece_id) REFERENCE pieces(piece_id);
+2023-06-29 20:57:36.035 EDT [48402] FATAL:  database "daviskim" does not exist
+2023-06-29 20:58:37.606 EDT [48415] ERROR:  syntax error at or near "SELECT" at character 22
+2023-06-29 20:58:37.606 EDT [48415] STATEMENT:  SELECT * FROM pieces
+	SELECT * FROM pieces;
+2023-06-29 22:31:46.347 EDT [52629] ERROR:  syntax error at or near "SELECT" at character 22
+2023-06-29 22:31:46.347 EDT [52629] STATEMENT:  SELECT * FROM pieces
+	SELECT * FROM pieces;
+2023-06-29 22:48:22.246 EDT [53367] ERROR:  syntax error at or near "," at character 97
+2023-06-29 22:48:22.246 EDT [53367] STATEMENT:  INSERT INTO "pieces" ("composer", "piece_name", "starting_date", "additional_thoughts") VALUES (,,,)
+2023-06-29 22:49:19.048 EDT [53420] ERROR:  syntax error at or near "," at character 97
+2023-06-29 22:49:19.048 EDT [53420] STATEMENT:  INSERT INTO "pieces" ("composer", "piece_name", "starting_date", "additional_thoughts") VALUES (,,,)
+2023-06-29 22:51:05.779 EDT [53499] ERROR:  syntax error at or near "," at character 97
+2023-06-29 22:51:05.779 EDT [53499] STATEMENT:  INSERT INTO "pieces" ("composer", "piece_name", "starting_date", "additional_thoughts") VALUES (,,,)
+2023-06-29 22:52:20.964 EDT [53549] ERROR:  syntax error at or near "," at character 97
+2023-06-29 22:52:20.964 EDT [53549] STATEMENT:  INSERT INTO "pieces" ("composer", "piece_name", "starting_date", "additional_thoughts") VALUES (,,,)
+2023-06-29 22:52:45.704 EDT [53588] ERROR:  syntax error at or near "," at character 87
+2023-06-29 22:52:45.704 EDT [53588] STATEMENT:  INSERT INTO pieces (composer, piece_name, starting_date, additional_thoughts) VALUES (,,,)
+2023-06-29 22:53:27.144 EDT [53637] ERROR:  syntax error at or near "," at character 87
+2023-06-29 22:53:27.144 EDT [53637] STATEMENT:  INSERT INTO pieces (composer, piece_name, starting_date, additional_thoughts) VALUES (,,,)
+2023-06-29 22:53:40.118 EDT [53671] ERROR:  syntax error at or near "," at character 87
+2023-06-29 22:53:40.118 EDT [53671] STATEMENT:  INSERT INTO pieces (composer, piece_name, starting_date, additional_thoughts) VALUES (,,,)
+2023-06-29 22:53:58.114 EDT [53714] ERROR:  syntax error at or near "," at character 87
+2023-06-29 22:53:58.114 EDT [53714] STATEMENT:  INSERT INTO pieces (composer, piece_name, starting_date, additional_thoughts) VALUES (,,,)
+2023-06-29 22:54:26.061 EDT [53753] ERROR:  syntax error at or near "," at character 87
+2023-06-29 22:54:26.061 EDT [53753] STATEMENT:  INSERT INTO pieces (composer, piece_name, starting_date, additional_thoughts) VALUES (,,,)
+2023-06-29 22:54:37.636 EDT [53765] ERROR:  syntax error at or near "," at character 87
+2023-06-29 22:54:37.636 EDT [53765] STATEMENT:  INSERT INTO pieces (composer, piece_name, starting_date, additional_thoughts) VALUES (,,,)
+2023-06-29 22:56:01.222 EDT [53854] ERROR:  syntax error at or near "," at character 87
+2023-06-29 22:56:01.222 EDT [53854] STATEMENT:  INSERT INTO pieces (composer, piece_name, starting_date, additional_thoughts) VALUES (,,,) RETURNING *
+2023-06-29 22:59:29.375 EDT [53935] ERROR:  syntax error at or near "," at character 87
+2023-06-29 22:59:29.375 EDT [53935] STATEMENT:  INSERT INTO pieces (composer, piece_name, starting_date, additional_thoughts) VALUES (,,,) RETURNING *
+2023-06-29 23:01:53.847 EDT [54024] ERROR:  syntax error at or near "," at character 28
+2023-06-29 23:01:53.847 EDT [54024] STATEMENT:  INSERT INTO pieces VALUES (,,,) RETURNING *
+2023-06-29 23:02:46.285 EDT [54055] ERROR:  syntax error at or near "," at character 28
+2023-06-29 23:02:46.285 EDT [54055] STATEMENT:  INSERT INTO pieces VALUES (,,,) RETURNING *
+2023-06-29 23:02:54.348 EDT [54083] ERROR:  column "davis" does not exist at character 28
+2023-06-29 23:02:54.348 EDT [54083] STATEMENT:  INSERT INTO pieces VALUES (davis,testing1,testing2,testing3) RETURNING *
+2023-06-29 23:03:30.556 EDT [54129] ERROR:  column "davis" does not exist at character 87
+2023-06-29 23:03:30.556 EDT [54129] STATEMENT:  INSERT INTO pieces (composer, piece_name, starting_date, additional_thoughts) VALUES (davis,testing1,testing2,testing3) RETURNING *
+2023-06-29 23:07:36.469 EDT [54249] ERROR:  column "davis" does not exist at character 95
+2023-06-29 23:07:36.469 EDT [54249] STATEMENT:  INSERT INTO pieces ("composer", "piece_name", "starting_date", "additional_thoughts") VALUES (davis,testing1,testing2,testing3) RETURNING *
+2023-06-29 23:09:46.731 EDT [54326] ERROR:  column "testing3" does not exist at character 87
+2023-06-29 23:09:46.731 EDT [54326] STATEMENT:  INSERT INTO pieces (composer, piece_name, starting_date, additional_thoughts) VALUES (testing3) RETURNING *
+2023-06-29 23:13:41.531 EDT [54598] ERROR:  syntax error at or near "$" at character 87
+2023-06-29 23:13:41.531 EDT [54598] STATEMENT:  INSERT INTO pieces (composer, piece_name, starting_date, additional_thoughts) VALUES ($composer, $piece_name, $starting_date, $additional_thoughts) RETURNING *

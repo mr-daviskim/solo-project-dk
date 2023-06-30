@@ -12,11 +12,11 @@ module.exports = ({ mode } = { mode: "production" }) => {
                 path: path.resolve(__dirname, "build"),
                 filename: "bundle.js"
             },
+            devServer: {
+                historyApiFallback: true,
+            },
             resolve: {
                 extensions: ['.js', '.json', '.jsx', '.css'],
-              },
-            devServer: {
-                open: true
               },
             module: {
                 rules: [
@@ -40,6 +40,17 @@ module.exports = ({ mode } = { mode: "production" }) => {
                 new HtmlWebpackPlugin({
                     template: "./public/index.html"
                 }),
-            ]
+            ],
         }
 };
+
+
+                // static: {
+                //     directory: path.join(__dirname, 'build'),
+                //     publicPath: '/build'
+                // },
+                // compress: true,
+                // port: 8080,
+                //   proxy: {
+                //     '/addpieces': 'http://localhost:3000',
+                //   }
